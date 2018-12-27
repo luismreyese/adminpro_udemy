@@ -20,11 +20,12 @@ import { RegisterComponent } from './login/register.component';
 
 import { APP_ROUTES } from './app.routes';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     PagesModule,

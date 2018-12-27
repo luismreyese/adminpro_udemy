@@ -1,3 +1,64 @@
-<p>
-  progress works!
-</p>
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+              <h4 class = "card-title">Barra de Progreso</h4>
+               <div class="progress">
+              <!-- para que Angular pueda  manejar el atributo de bootstrap el cual no conoce, debemos  declararlo
+                  entre llaves caudradas donde attr indica que es un atributo seguido del nombre [attr.atributo] -->
+                 <div class="progress-bar progress-bar-striped progress-bar-animated"
+                      role="progressbar" [attr.ariaValuenow] ="progreso1" aria-valuemin="0" aria-valuemax="100"
+                      [style.width] = "progreso1 + '%'">
+                 </div>
+                </div>
+                <br>
+                 <div class="progress">
+                 <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+                      role="progressbar" [attr.ariaValuenow] ="progreso2" aria-valuemin="0" aria-valuemax="100"
+                      [style.width] = "progreso2 + '%'">
+                 </div>
+                </div>                         
+             </div>
+         </div>
+     </div>
+</div>
+
+ <div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+<!-- aqui se hace el llamdo al hijo por medio de app-incrementador 
+     leyenda y procentaje estan declarados como @Input() en el componente del incrementador
+     porcentaje se coloca con llaves cuadradas para poder pasar el Numero y no un texto -->
+                <app-incrementador (cambioValor)="actualizar( $event )" leyenda="Blue Progress" [porcentaje]="40"></app-incrementador>
+                
+<!-- <div class="input-group">
+    <span class="input-group-btn">
+        <button class="btn btn-primary" type="button"  (click)="cambiarprcnt(-5)">
+        <i class = "mdi mdi-minus"></i></button>
+    </span>
+
+      <input type="text" class="form-control" name = "porcentaje" [(ngModel)] = "porcentaje">
+      <span class="input-group-btn">
+          <button class="btn btn-primary" type="button" (click)="cambiarprcnt(+5)">
+          <i class = "mdi mdi-plus"></i></button>
+      </span>
+  </div> -->
+
+            </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+          <div class="card">
+              <div class="card-body">
+                <app-incrementador (cambioValor)="actualizarV( $event )" leyenda="Green Progress" [porcentaje]="75"></app-incrementador>
+              </div>
+          </div>
+        </div>
+ </div>
+
+
+

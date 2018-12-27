@@ -1,0 +1,10 @@
+<h4> {{ leyenda }} </h4>
+<div style="display: block">
+  <canvas baseChart
+              [data]="doughnutChartData"
+              [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType">
+            </canvas>
+</div>
+<!-- (chartHover)="chartHovered($event)"
+(chartClick)="chartClicked($event)"     para utilziar los eventos ingresarlos dentro del canvas-->
