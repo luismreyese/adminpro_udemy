@@ -45,25 +45,25 @@ export class Graficas1Component implements OnInit {
   objectGrp: Igraficos;
   pGraficos: Igraficos[];
   constructor() {
-    console.log('inicio', this.graficos);
+    // console.log('inicio', this.graficos);
    }
 
   ngOnInit() {
-    for (const grap in this.graficos) {
-      if (this.graficos.hasOwnProperty(grap)) {
-        const element = this.graficos[grap];
-        // tslint:disable-next-line:no-unused-expression
-        this.objectGrp = element;
-        console.log('elementos', this.objectGrp);
+    // for (const grap in this.graficos) {
+    //   if (this.graficos.hasOwnProperty(grap)) {
+    //     const element = this.graficos[grap];
+    //     // tslint:disable-next-line:no-unused-expression
+    //     this.objectGrp = element;
+    //     console.log('elementos', this.objectGrp);
 
 
-      }
-    }
-    for (const grafico of this.graficos) {
-      console.log('parse graficos', grafico);
-      this.pGraficos.push(grafico);
-      console.log('arreglo', this.pGraficos);
-      }
+    //   }
+    // }
+    // for (const grafico of this.graficos) {
+    //   console.log('parse graficos', grafico);
+    //   this.pGraficos.push(grafico);
+    //   console.log('arreglo', this.pGraficos);
+    //   }
   }
 
 }

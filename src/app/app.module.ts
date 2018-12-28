@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { PagesModule } from './pages/pages.module';
 
+import { ServicesModule  } from './services/services.module';
+
 // Components
 
 import { AppComponent } from './app.component';
@@ -21,6 +23,7 @@ import { RegisterComponent } from './login/register.component';
 import { APP_ROUTES } from './app.routes';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,12 +33,10 @@ import { APP_ROUTES } from './app.routes';
   imports: [
     PagesModule,
     BrowserModule,
-    APP_ROUTES
+    APP_ROUTES,
+    ServicesModule
   ],
-  providers: [
-    // SharedService,
-    // SidebarService
-   ],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

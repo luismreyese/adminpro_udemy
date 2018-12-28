@@ -4,6 +4,11 @@ Author: Wrappixel
 Email: niravjoshi87@gmail.com
 File: js
 */
+
+/*
+Se crea la funcion plug_init para poder llamar a todas las funciones del plugIn desde Angular
+*/
+function plug_init() {
 $(function() {
     "use strict";
     $(function() {
@@ -155,3 +160,8 @@ $(function() {
     });
 
 });
+
+
+
+
+}
