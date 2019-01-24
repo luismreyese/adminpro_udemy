@@ -12,8 +12,11 @@ export class Usuario {
 }
 
 export class UsrTmp {
- constructor( public email: string,
-              public nombre: string,
-              public token: string ) { }
+ constructor( public email:    string,
+              public nombre:   string,
+              public token:    string,
+              public img?:     string,
+              public role?:    string
+             ) { }
 }
 

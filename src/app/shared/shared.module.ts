@@ -7,6 +7,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { NofoundpageComponent } from './nofoundpage/nofoundpage.component';
 import { ServicesModule } from '../services/services.module';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ServicesModule } from '../services/services.module';
   imports: [
     CommonModule,
     ServicesModule,
-    RouterModule
+    RouterModule,
+    PipesModule
   ],
   exports: [
     HeaderComponent,

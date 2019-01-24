@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Actualizacion de Datos</h4>
+        <!-- <h6 class="card-subtitle">datos de usuario</h6> -->
+        <h6 class="card-subtitle">{{ usuario.nombre }}</h6>
+        <form ngNativeValidate #frml="ngForm" (ngSubmit)="userUpdate(frml.value)" class="form p-t-20">
+          <div class="form-group">
+            <label for="exampleInputuname">nombre</label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="ti-user"></i></div>
+              <input [ngModel]="usuario.nombre" name= "nombre" class="form-control" id="exampleInputuname" type="text" placeholder="nombre" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Correo</label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="ti-email"></i></div>
+              <input [disabled]="usuario.google" [ngModel]="usuario.email" name= "email" class="form-control" id="exampleInputEmail1" type="email" placeholder="Correo" required >
+            </div>
+          </div>
+          <button class="btn btn-success waves-effect waves-light m-r-10" type="submit">Submit</button>
+          <!-- <button class="btn btn-inverse waves-effect waves-light" type="submit">Cancel</button> -->
+        </form>
+      </div>
+    </div>
+  </div>
+   <div class="col-lg-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Imagen o Foto del Usuario</h4>
+        <h6 class="card-subtitle">{{ usuario.nombre }}</h6>
+        <img *ngIf="!imagenTmp" [src]="imagen | imagen" alt="" class="w150">
+        <img *ngIf="imagenTmp" [src]="imagenTmp" alt="" class="w150">
+        <br>
+        <br>
+        <input (change)='setArchivo($event)' type="file" placeholder="archivo" >
+        <br>
+        <br>
+        <button (click)="cargarArchivo()" class="btn btn-success waves-effect waves-light m-r-10" type="bottom">cargar Imagen</button>
+      </div>
+    </div>
+  </div> 
+</div>

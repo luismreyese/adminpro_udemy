@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../services/services.index';
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   email: string;
   navigate: boolean;
   auth2: any;
-  constructor( public router: Router, public _usrService: UserService) { }
+  constructor( public router: Router, public _usrService: UserService, private _ngZone: NgZone) { }
 
   ngOnInit() {
     plug_init();
@@ -26,12 +26,9 @@ export class LoginComponent implements OnInit {
     if (this.email !== '') {
       this.recuerdame = true;
     }
-    if (this.navigate === true) { this.router.navigate(['/dashboard']); }
   }
   chngroute( ): void {
-    // Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-    // Add '${implements OnChanges}' to the class.
-    if (this.navigate === true) { this.router.navigate(['/dashboard']); }
+    this._ngZone.run( () => { this.router.navigate(['/dashboard']); }  );
   }
 
 googleInit() {
