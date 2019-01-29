@@ -3,10 +3,9 @@ import { CommonModule } from '@angular/common';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Usuario } from '../../models/usuario.model';
-import { UserService } from 'src/app/services/services.index';
+import { UserService, ModalserviceService } from 'src/app/services/services.index';
 import { URL_SERVICES } from '../../config/config';
-import { isUndefined } from 'util';
-import { resolve } from 'dns';
+
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
@@ -18,8 +17,8 @@ export class PerfilComponent implements OnInit {
   imagenTmp: any;
   archivo: File;
 
-  constructor(private _route: Router, private _service: UserService, private _ngzone: NgZone) { }
-
+  constructor(private _route: Router, private _service: UserService,
+              private _serviceMdl: ModalserviceService, private _ngzone: NgZone) { }
   ngOnInit() {
     this.usuario = this._service.usuario;
     if (this.imagen === null || this.imagen === undefined ) {

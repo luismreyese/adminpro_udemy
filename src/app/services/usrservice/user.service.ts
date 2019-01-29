@@ -41,7 +41,7 @@ export class UserService {
        swal(usuario.email, 'Login realizado Satisfactoriamente', 'success');
       // const usrTemp = new UsrTmp(usuario.email, usuario.nombre, respuesta.argmnt.token, usuario.img, usuario.role);
       this.setTmprUsr( usuario, false, respuesta.argmnt.token );
-    console.log(respuesta);
+    // console.log(respuesta);
      } ) );
   }
   login( usuario: Usuario, recuerdame: boolean) {
@@ -51,7 +51,7 @@ export class UserService {
      swal(usuario.email, 'Login realizado Satisfactoriamente', 'success');
      const usrTemp = respuesta.argmnt.usuario;
      this.setTmprUsr( usrTemp, recuerdame, respuesta.argmnt.token );
-     console.log(respuesta);
+    //  console.log(respuesta);
       // return respuesta.argmnt;
     } ) );
   }
@@ -101,7 +101,10 @@ UserUpdate(usuario: Usuario) {
 
   const URL = `${URL_SERVICES }/usuario/${usuario._id}?token=${this.token}`;
   return this._httpClient.put(URL, usuario).pipe(map(( respuesta: any ) => {
-   this.setTmprUsr(usuario, !usuario.google , '');
+   if (usuario._id === this.usuario._id) {
+    this.setTmprUsr(usuario, !usuario.google , '');
+   }
+
    swal(usuario.email, respuesta.argmnt.message , 'success');
    return true;
   } ));
@@ -123,5 +126,26 @@ this.setTmprUsr( this.usuario, false , '' );
 );
 }
 
+cargarUsuarios(desde: number = 0, limite: number = 3 ) {
+
+  const url = `${URL_SERVICES}/usuario?desde=${desde}&limite=${limite}`;
+  return this._httpClient.get(url);
+
+}
+
+buscarColecciones( coleccion: string, termino: string ) {
+
+const url = `${URL_SERVICES}/busqueda/coleccion/${coleccion}/${termino}`;
+  return this._httpClient.get(url).pipe(map( (resp: any ) => {
+    return resp.argmnt.datos;
+  } ));
+
+
+}
+eliminarUsuario(userId) {
+
+const url = `${URL_SERVICES}/usuario/${userId}?token=${this.token}`;
+return this._httpClient.delete(url);
+}
 // Fin de la Clase
 }

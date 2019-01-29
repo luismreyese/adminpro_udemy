@@ -9,6 +9,7 @@ export class ImagenPipe implements PipeTransform {
   transform( img: string = 'xxxxx', tipo: string = 'usuario' ): any {
 
     let url = `${URL_SERVICES}/img`;
+  if (img === null || img === undefined) { img = 'XXX'; }
    if (img.indexOf('https') >= 0) {
     return img;
    }

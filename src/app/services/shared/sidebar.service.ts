@@ -18,6 +18,16 @@ export class SidebarService {
         {titulo: 'Observables' , url: '/rjxs'}
       ]
 
+    },
+  {
+      titulo: 'Mantenimiento',
+      icono: 'mdi mdi-folder-open', // -look-open
+      smenu: [
+        {titulo: 'Usuarios' ,    url:  '/usuarios'},
+        {titulo: 'Medicos' ,     url:  '/medicos'},
+        {titulo: 'Hospitales' ,  url:  '/hospitales'}
+      ]
+
     }
   ];
 

@@ -23,6 +23,8 @@ import { RjxsComponent } from './rjxs/rjxs.component';
 // Importa las rutas para manejo de la navegacion
 import { PAGES_ROUTES } from './pages.routes';
 import { PerfilComponent } from './perfil/perfil.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
 
 
 @NgModule({
@@ -35,6 +37,8 @@ import { PerfilComponent } from './perfil/perfil.component';
     PromesasComponent,
     RjxsComponent,
     PerfilComponent,
+    UsuariosComponent,
+    ModalUploadComponent,
   ],
   imports: [
     CommonModule,
